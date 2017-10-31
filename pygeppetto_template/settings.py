@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pygeppetto_server.apps.PygeppettoServerConfig',
     'channels',
     'rest_framework',
 ]
