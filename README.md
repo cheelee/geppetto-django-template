@@ -9,6 +9,7 @@ This template provides a very basic python infrastructure to serve the static co
 
 ## Installation
 
+**Dependencies**
 ```
 pip install pygeppetto_server
 ```
@@ -16,11 +17,13 @@ pip install pygeppetto_server
 pip install channels
 pip install asgi_redis -->
 
-**Install redis server (Needed for the sockets communcation)**
+*Install redis server (Needed for the sockets communcation)*
 ```
 sudo apt-get install redis-server
 brew install redis
 ```
+
+**Install Django Template**
 
 ```
 git clone https://github.com/MetaCell/geppetto-django-template
@@ -30,6 +33,10 @@ git clone https://github.com/openworm/org.geppetto.frontend
 cd org.geppetto.frontend/src/main/webapp
 npm install
 npm run build-dev-noTest
+```
+
+## Start the server
+```
 python manage.py runserver
 ```
 
@@ -39,12 +46,34 @@ Go to http://localhost:8000/ and enjoy!
 
 Any change you make in the python code will be automatically redeploy by the Django server.
 
-JS/HTML code can be found inside `static/org.geppetto.frontend/src/main/webapp/`. The code needs to be rebuilt with webpack everytime there is a change. The recommended way is to run in `/static/org.geppetto.frontend/src/main/webapp/` this command
-`
+JS/HTML code can be found inside `static/org.geppetto.frontend/src/main/webapp/`. The code needs to be rebuilt with webpack everytime there is a change. The recommended way is to run in `/static/org.geppetto.frontend/src/main/webapp/` this command:
+```
 npm run build-dev-noTest:watch
-`
+```
+
+Additionally, if you want to extend the geppetto core functionality, have a look at https://github.com/MetaCell/pygeppetto-django repo. README describes how to install pygeppetto_server in development mode and modify the code.
 
 ## Features
+
+**How to develop a RESTFUL API**
+
+A example of a very simple REST API is provided together with this skeleton. You will find it at the 'api' folder.
+
+The routing happens at urls.py:
+```
+from api import views
+
+urlpatterns = [
+    ...
+    url(r'^api/people/', views.people)
+]
+```
+
+Inside api.views a very simple webservice answering GET and POST request has been implemented.
+
+This REST API, at the moment, is not connected to any database. If you want to have a database have a look at the 'What is missing?' section bellow and then follow any tutorial regarding the Django Rest Framework(https://realpython.com/blog/python/django-rest-framework-quick-start/ or https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django are very good options).
+
+**How to extend Geppetto Websockets**
 
 **Integration with pygeppetto-django**
 This module implements the basic functionality to start a Python Geppetto Instance. To integrate pygeppetto-django module, the following actions have been performed:
@@ -74,16 +103,9 @@ This module implements the basic functionality to start a Python Geppetto Instan
     ]
     ```
 
-
-
-
-https://github.com/MetaCell/otree-core/tree/d14a37cd3ef63c001a976e87e25669751a459d72/otree/channels
-https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django
-https://realpython.com/blog/python/django-rest-framework-quick-start/
-
 **What is missing?**
 
-This template is not connected to any database but, as it is implement on top of the django server, this is quite simple to achieve. In the settings.py you will find commented out the binding for the sqlite dbs provided by default with Django. These are two links with some useful tips to start with:
+This skeleton app is not connected to any database but, as it is implemented on top of the Django server, this is quite simple to integrate any SQL DB. In the settings.py you will find commented out the binding for the sqlite dbs provided by default with Django. These are two links with some useful tips to start with:
 https://docs.djangoproject.com/en/1.11/topics/install/#database-installation
 https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
