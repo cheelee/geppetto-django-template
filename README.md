@@ -13,9 +13,6 @@ This template provides a very basic python infrastructure to serve the static co
 ```
 pip install pygeppetto_server
 ```
-<!-- pip install Django
-pip install channels
-pip install asgi_redis -->
 
 *Install Redis server (for the sockets communication)*
 ```
