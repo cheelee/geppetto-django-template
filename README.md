@@ -11,7 +11,7 @@ This template provides a very basic python infrastructure to serve the static co
 
 **Dependencies**
 ```
-pip install pygeppetto_server
+pip install pygeppetto-django
 ```
 
 *Install Redis server (for the sockets communication)*
