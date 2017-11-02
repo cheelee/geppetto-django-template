@@ -107,7 +107,8 @@ This module implements the basic functionality to start a Python Geppetto Instan
 
 **What is missing?**
 
-This skeleton app is not connected to any database but, as it is implemented on top of the Django server, this is quite simple to integrate any SQL DB. In the settings.py you will find commented out the binding for the sqlite DBS provided by default with Django. These are two links with some useful tips to start with:
+This skeleton app is not connected to any database but, as it is implemented on top of the Django server, it should be quite simple to integrate any SQL DB. In the settings.py you will find commented out the binding for the sqlite DBS provided by default with Django. These are two links with some useful tips to start with:
 https://docs.djangoproject.com/en/1.11/topics/install/#database-installation
 https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+
 
