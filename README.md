@@ -28,6 +28,7 @@ brew install redis
 git clone https://github.com/MetaCell/geppetto-django-template
 cd geppetto-django-template
 mkdir static
+cd static
 git clone https://github.com/openworm/org.geppetto.frontend
 cd org.geppetto.frontend/src/main/webapp
 npm install
