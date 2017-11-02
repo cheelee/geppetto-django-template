@@ -36,6 +36,11 @@ npm run build-dev-noTest
 ```
 
 ## Start the server
+On OSX need to run redis server manually:
+```
+nohup redis-server &
+```
+Then run:
 ```
 python manage.py runserver
 ```
