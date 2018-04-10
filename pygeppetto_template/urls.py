@@ -21,5 +21,6 @@ from api import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('pygeppetto_server.urls')),
+    url(r'^.*/', include('pygeppetto_server.urls')),
     url(r'^api/people/', views.people)
 ]
